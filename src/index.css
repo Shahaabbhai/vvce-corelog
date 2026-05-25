@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --color-momentum-bg: #0a0807;
+  --color-momentum-card: #151110;
+  --color-momentum-border: #221c1a;
+  --color-momentum-accent: #ff6b00;
+  --color-momentum-warm: #a65d3d;
+
+  /* Aliases for components */
+  --color-surface-base: var(--color-momentum-bg);
+  --color-surface-card: var(--color-momentum-card);
+  --color-border-subtle: var(--color-momentum-border);
+}
+
+@layer base {
+  body {
+    @apply bg-momentum-bg text-slate-400 antialiased font-sans overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .momentum-card {
+    @apply bg-momentum-card border border-momentum-border;
+  }
+  
+  .momentum-glow-orange {
+    @apply shadow-[0_0_30px_rgba(255,107,0,0.15)];
+  }
+}
+
+html.theme-light {
+  filter: invert(1) hue-rotate(180deg);
+  background: white;
+}
+html.theme-light body {
+  background: white;
+}
+html.theme-light img, 
+html.theme-light video, 
+html.theme-light iframe,
+html.theme-light .recharts-surface,
+html.theme-light [class*="recharts"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
